@@ -86,7 +86,7 @@
                 <div class="space-y-12">
                     <!-- Header -->
                     <header class="flex flex-col items-center text-center space-y-6">
-                        <img src="src/assets/mpk.png" alt="Logo MPK" class="w-32 h-32 object-contain" onerror="this.src='https://placehold.co/128x128?text=Logo+MPK'">
+                        <img src="assets/mpk.png" alt="Logo MPK" class="w-32 h-32 object-contain" onerror="this.src='https://placehold.co/128x128?text=Logo+MPK'">
                         
                         <div class="inline-flex items-center gap-2 bg-[#F0F4FF] text-[#6366f1] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider">
                             <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
@@ -128,7 +128,7 @@
                             </div>
                             <ul class="space-y-3 text-sm text-[#4A5568] leading-relaxed">
                                 <li class="flex gap-3"><span class="text-[#6366f1]">•</span><p>Survey ini bersifat <strong class="font-bold">100% ANONIM</strong>. Kami tidak merekam data pribadi, email, atau IP Anda.</p></li>
-                                <li class="flex gap-3"><span class="text-[#6366f1]">•</span><p><strong class="font-bold">Pesan khusus untuk adik-adik kelas:</strong> Tidak perlu menggunakan kata sapaan "Ka" atau "Kakak" agar identitas terjaga.</p></li>
+                                <li class="flex gap-3"><span class="text-[#6366f1]">•</span><p><strong class="font-bold">Pesan khusus untuk adik-adik kelas:</strong> Tidak perlu menggunakan kata sapaan \"Ka\" atau \"Kakak\" agar identitas terjaga.</p></li>
                                 <li class="flex gap-3"><span class="text-[#6366f1]">•</span><p>Isilah form ini sejujur-jujurnya demi evaluasi objektif organisasi.</p></li>
                             </ul>
                         </div>
@@ -175,7 +175,251 @@
                                         </label>
                                     </div>
                                 </div>
-                                <!-- ... Repeat questions Q2 - Q8 here similarly ... -->
+
+                                <!-- Q2 -->
+                                <div class="space-y-6">
+                                    <h3 class="font-bold text-gray-800">Bagaimana reaksimu terhadap ide baru yang sangat berbeda dari biasanya?</h3>
+                                    <div class="grid gap-3">
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q2" value="Sangat menyukai tantangan dan ingin segera mencobanya" class="peer sr-only radio-custom" required>
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">A</div>
+                                                <span class="radio-text text-gray-600">Sangat menyukai tantangan dan ingin segera mencobanya.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q2" value="Menganalisis risiko dan manfaatnya terlebih dahulu" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">B</div>
+                                                <span class="radio-text text-gray-600">Menganalisis risiko dan manfaatnya terlebih dahulu.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q2" value="Mengajaknya ke dalam forum untuk mencapai mufakat" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">C</div>
+                                                <span class="radio-text text-gray-600">Mengajaknya ke dalam forum untuk mencapai mufakat.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q2" value="Mendukung ide tersebut jika selaras dengan nilai MPK" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">D</div>
+                                                <span class="radio-text text-gray-600">Mendukung ide tersebut jika selaras dengan nilai MPK.</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Q3 -->
+                                <div class="space-y-6">
+                                    <h3 class="font-bold text-gray-800">Pandanganmu terhadap kesuksesan sebuah program kerja adalah...</h3>
+                                    <div class="grid gap-3">
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q3" value="Tercapainya target bersama dengan suasana kekeluargaan" class="peer sr-only radio-custom" required>
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">A</div>
+                                                <span class="radio-text text-gray-600">Tercapainya target bersama dengan suasana kekeluargaan.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q3" value="Adanya proses pembelajaran bagi setiap anggota pelaksana" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">B</div>
+                                                <span class="radio-text text-gray-600">Adanya proses pembelajaran bagi setiap anggota pelaksana.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q3" value="Eksekusi yang profesional dengan efisiensi tinggi" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">C</div>
+                                                <span class="radio-text text-gray-600">Eksekusi yang profesional dengan efisiensi tinggi.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q3" value="Adanya dampak positif yang berkelanjutan bagi sekolah" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">D</div>
+                                                <span class="radio-text text-gray-600">Adanya dampak positif yang berkelanjutan bagi sekolah.</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Q4 -->
+                                <div class="space-y-6">
+                                    <h3 class="font-bold text-gray-800">Bagaimana cara terbaik menurutmu untuk memotivasi anggota yang mulai pasif?</h3>
+                                    <div class="grid gap-3">
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q4" value="Melakukan pendekatan personal dari hati ke hati" class="peer sr-only radio-custom" required>
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">A</div>
+                                                <span class="radio-text text-gray-600">Melakukan pendekatan personal dari hati ke hati.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q4" value="Memberikan tantangan baru yang sesuai minatnya" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">B</div>
+                                                <span class="radio-text text-gray-600">Memberikan tantangan baru yang sesuai minatnya.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q4" value="Mengingatkan kembali tujuan awal masuk organisasi" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">C</div>
+                                                <span class="radio-text text-gray-600">Mengingatkan kembali tujuan awal masuk organisasi.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q4" value="Melakukan evaluasi bersama dalam forum formal" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">D</div>
+                                                <span class="radio-text text-gray-600">Melakukan evaluasi bersama dalam forum formal.</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Q5 -->
+                                <div class="space-y-6">
+                                    <h3 class="font-bold text-gray-800">Apa yang kamu lakukan jika melihat ada kebijakan organisasi yang dirasa kurang tepat?</h3>
+                                    <div class="grid gap-3">
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q5" value="Menyampaikan kritik konstruktif melalui jalur resmi" class="peer sr-only radio-custom" required>
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">A</div>
+                                                <span class="radio-text text-gray-600">Menyampaikan kritik konstruktif melalui jalur resmi.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q5" value="Mencoba memahami latar belakang kebijakan tersebut lebih dalam" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">B</div>
+                                                <span class="radio-text text-gray-600">Mencoba memahami latar belakang kebijakan tersebut lebih dalam.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q5" value="Mengajak rekan lain untuk berdiskusi mencari solusi alternatif" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">C</div>
+                                                <span class="radio-text text-gray-600">Mengajak rekan lain untuk berdiskusi mencari solusi alternatif.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q5" value="Tetap menjalankan sambil menunggu waktu evaluasi tiba" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">D</div>
+                                                <span class="radio-text text-gray-600">Tetap menjalankan sambil menunggu waktu evaluasi tiba.</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Q6 -->
+                                <div class="space-y-6">
+                                    <h3 class="font-bold text-gray-800">Bagaimana sikapmu saat program kerja yang kamu susun tidak disetujui forum?</h3>
+                                    <div class="grid gap-3">
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q6" value="Menerima masukan forum dan memperbaiki konsepnya" class="peer sr-only radio-custom" required>
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">A</div>
+                                                <span class="radio-text text-gray-600">Menerima masukan forum dan memperbaiki konsepnya.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q6" value="Meminta penjelasan mendalam untuk bahan evaluasi diri" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">B</div>
+                                                <span class="radio-text text-gray-600">Meminta penjelasan mendalam untuk bahan evaluasi diri.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q6" value="Menawarkan diri untuk membantu program kerja lain yang terpilih" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">C</div>
+                                                <span class="radio-text text-gray-600">Menawarkan diri untuk membantu program kerja lain yang terpilih.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q6" value="Tetap mendukung keputusan mufakat demi kesolidan tim" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">D</div>
+                                                <span class="radio-text text-gray-600">Tetap mendukung keputusan mufakat demi kesolidan tim.</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Q7 -->
+                                <div class="space-y-6">
+                                    <h3 class="font-bold text-gray-800">Menurutmu, kualitas terpenting yang harus dimiliki anggota MPK adalah...</h3>
+                                    <div class="grid gap-3">
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q7" value="Integritas tinggi dalam menjalankan setiap tugas" class="peer sr-only radio-custom" required>
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">A</div>
+                                                <span class="radio-text text-gray-600">Integritas tinggi dalam menjalankan setiap tugas.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q7" value="Kemampuan berkomunikasi dan menjalin relasi" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">B</div>
+                                                <span class="radio-text text-gray-600">Kemampuan berkomunikasi dan menjalin relasi.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q7" value="Kreativitas dalam melahirkan ide-ide baru" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">C</div>
+                                                <span class="radio-text text-gray-600">Kreativitas dalam melahirkan ide-ide baru.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q7" value="Ketahanan dan dedikasi dalam bekerja keras" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">D</div>
+                                                <span class="radio-text text-gray-600">Ketahanan dan dedikasi dalam bekerja keras.</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Q8 -->
+                                <div class="space-y-6">
+                                    <h3 class="font-bold text-gray-800">Bagaimana caramu menjaga keseimbangan antara sekolah dan organisasi?</h3>
+                                    <div class="grid gap-3">
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q8" value="Membuat skala prioritas harian yang sangat ketat" class="peer sr-only radio-custom" required>
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">A</div>
+                                                <span class="radio-text text-gray-600">Membuat skala prioritas harian yang sangat ketat.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q8" value="Selalu mengedepankan tugas akademik di atas segalanya" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">B</div>
+                                                <span class="radio-text text-gray-600">Selalu mengedepankan tugas akademik di atas segalanya.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q8" value="Mencoba menerapkan manajemen waktu yang fleksibel" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">C</div>
+                                                <span class="radio-text text-gray-600">Mencoba menerapkan manajemen waktu yang fleksibel.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q8" value="Minta bantuan/koordinasi tim saat jadwal sedang padat" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">D</div>
+                                                <span class="radio-text text-gray-600">Minta bantuan/koordinasi tim saat jadwal sedang padat.</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -196,6 +440,34 @@
                                 </div>
                                 <p class="font-bold text-gray-800">Bagaimana caramu meningkatkan partisipasi anggota yang mulai merasa jenuh atau pasif?</p>
                                 <textarea name="anggota_jenuh" placeholder="Langkah strategis untuk membangkitkan semangat tim..." class="w-full min-h-[160px] p-6 rounded-3xl bg-[#F9FAFB]/50 border border-transparent focus:bg-white focus:border-[#6366f1]/30 focus:ring-4 focus:ring-[#6366f1]/5 outline-none transition-all text-sm leading-relaxed" required></textarea>
+                            </div>
+                            <div class="bg-white border border-gray-100 rounded-3xl shadow-sm p-8 space-y-6">
+                                <div class="flex items-center justify-between border-b border-gray-50 pb-4">
+                                    <h2 class="text-xs font-bold text-[#6366f1] uppercase tracking-widest">03 TEKANAN: PENGAMBILAN KEPUTUSAN</h2>
+                                    <i data-lucide="lightbulb" class="text-yellow-500 opacity-60"></i>
+                                </div>
+                                <p class="font-bold text-gray-800">Bagaimana strategi logismu dalam mengambil keputusan krusial saat berada di bawah tekanan waktu?</p>
+                                <textarea name="keputusan_krusial" placeholder="Jelaskan mekanisme berpikirmu dalam situasi darurat..." class="w-full min-h-[160px] p-6 rounded-3xl bg-[#F9FAFB]/50 border border-transparent focus:bg-white focus:border-[#6366f1]/30 focus:ring-4 focus:ring-[#6366f1]/5 outline-none transition-all text-sm leading-relaxed" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Section 3 -->
+                        <div class="space-y-8">
+                            <div class="bg-white border border-gray-100 rounded-3xl shadow-sm p-8 space-y-6">
+                                <div class="flex items-center gap-2 border-b border-gray-50 pb-4">
+                                    <i data-lucide="message-square" class="text-[#6366f1]" style="width: 18px; height: 18px;"></i>
+                                    <h2 class="text-xs font-bold text-[#6366f1] uppercase tracking-widest">KESAN & PESAN MPK</h2>
+                                </div>
+                                <p class="font-bold text-gray-800 text-sm">Berikan feedback objektif mengenai perjalanan organisasi secara umum selama periode ini.</p>
+                                <textarea name="kesan_pesan_umum" placeholder="Apa yang perlu dipertahankan dan apa yang harus dievaluasi dari MPK?" class="w-full min-h-[160px] p-6 rounded-3xl bg-[#F9FAFB]/50 border border-transparent focus:bg-white focus:border-[#6366f1]/30 focus:ring-4 focus:ring-[#6366f1]/5 outline-none transition-all text-sm leading-relaxed" required></textarea>
+                            </div>
+                            <div class="bg-white border border-gray-100 rounded-3xl shadow-sm p-8 space-y-6">
+                                <div class="flex items-center gap-2 border-b border-gray-50 pb-4">
+                                    <i data-lucide="star" class="text-[#6366f1]" style="width: 18px; height: 18px;"></i>
+                                    <h2 class="text-xs font-bold text-[#6366f1] uppercase tracking-widest">PERSONAL NOTE: KETUA MPK</h2>
+                                </div>
+                                <p class="font-bold text-gray-800 text-sm">Berikan pesan atau kritik personal yang membangun langsung untuk Ketua MPK.</p>
+                                <textarea name="personal_note_ketua" placeholder="Jujurlah, masukanmu adalah nutrisi untuk pertumbuhan kepemimpinannya..." class="w-full min-h-[160px] p-6 rounded-3xl bg-[#F9FAFB]/50 border border-transparent focus:bg-white focus:border-[#6366f1]/30 focus:ring-4 focus:ring-[#6366f1]/5 outline-none transition-all text-sm leading-relaxed" required></textarea>
                             </div>
                         </div>
 
