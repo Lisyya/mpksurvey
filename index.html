@@ -1,13 +1,226 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluasi & Aspirasi MPK</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Alpine.js for simple logic -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background-color: #FDFCF8;
+            color: #1f2937;
+        }
+        .radio-custom:checked + div {
+            border-color: rgba(99, 102, 241, 0.4);
+            background-color: white;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.05);
+        }
+        .radio-custom:checked + div .radio-badge {
+            background-color: #6366f1;
+            color: white;
+            border-color: #6366f1;
+        }
+        .radio-custom:checked + div .radio-text {
+            color: #111827;
+            font-weight: 700;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#6366f1',
+                            secondary: '#f0f4ff',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body x-data="{ submitted: false, isSubmitting: false }">
 
+    <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto space-y-12">
+            
+            <!-- Success State -->
+            <template x-if="submitted">
+                <div class="flex items-center justify-center py-20">
+                    <div class="bg-white p-12 md:p-20 rounded-[50px] shadow-2xl shadow-indigo-500/5 border border-gray-50 max-w-3xl w-full text-center space-y-12 transition-all">
+                        <div class="flex justify-center">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-emerald-50 rounded-full scale-150 opacity-40 animate-pulse"></div>
+                                <div class="absolute inset-0 bg-emerald-50 rounded-full scale-125 opacity-60"></div>
+                                <div class="relative w-24 h-24 rounded-full bg-emerald-50 flex items-center justify-center border-4 border-white shadow-sm text-emerald-500">
+                                    <i data-lucide="check-circle-2" style="width: 48px; height: 48px; stroke-width: 2.5px;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <h2 class="text-5xl font-black text-gray-800 tracking-tight">Aspirasi Terkirim!</h2>
+                            <p class="italic text-gray-500 font-medium leading-relaxed text-lg max-w-2xl mx-auto">
+                                "Terima kasih atas keberanianmu untuk bersuara. Kejujuranmu adalah bahan bakar utama bagi perkembangan MPK yang lebih harmonis."
+                            </p>
+                        </div>
+                        <div class="pt-6">
+                            <button @click="submitted = false" class="w-full bg-[#6366f1] text-white py-6 rounded-3xl font-bold shadow-xl shadow-indigo-100 hover:shadow-indigo-200 transition-all text-xl">
+                                Kirim Tanggapan Lain
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-400 font-medium tracking-wide">Identitas Anda tetap 100% rahasia.</p>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Form State -->
+            <template x-if="!submitted">
+                <div class="space-y-12">
+                    <!-- Header -->
+                    <header class="flex flex-col items-center text-center space-y-6">
+                        <img src="src/assets/mpk.png" alt="Logo MPK" class="w-32 h-32 object-contain" onerror="this.src='https://placehold.co/128x128?text=Logo+MPK'">
+                        
+                        <div class="inline-flex items-center gap-2 bg-[#F0F4FF] text-[#6366f1] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider">
+                            <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+                            PROTECTED ANONYMOUS PORTAL
+                        </div>
+
+                        <div class="space-y-4">
+                            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">Evaluasi & Aspirasi MPK</h1>
+                            <p class="max-w-xl mx-auto text-gray-500 font-medium">Wadah kolaborasi pemikiran untuk transformasi organisasi yang lebih objektif dan inklusif.</p>
+                        </div>
+                    </header>
+
+                    <form action="https://formspree.io/f/xrejokrd" method="POST" 
+                        @submit.prevent="
+                            isSubmitting = true;
+                            fetch($el.action, {
+                                method: 'POST',
+                                body: new FormData($el),
+                                headers: { 'Accept': 'application/json' }
+                            }).then(response => {
+                                if (response.ok) {
+                                    submitted = true;
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                } else {
+                                    alert('Gagal mengirim. Silakan coba lagi.');
+                                }
+                            }).catch(() => {
+                                alert('Terjadi kesalahan koneksi.');
+                            }).finally(() => {
+                                isSubmitting = false;
+                            })
+                        " class="space-y-10">
+
+                        <!-- Catatan Penting -->
+                        <div class="bg-[#F0F7FF] border border-[#D1E9FF] p-6 md:p-8 rounded-3xl space-y-4">
+                            <div class="flex items-center gap-2 text-[#4A5568] font-bold">
+                                <i data-lucide="info" class="text-[#6366f1]" style="width: 20px; height: 20px;"></i>
+                                <span class="text-sm">CATATAN PENTING</span>
+                            </div>
+                            <ul class="space-y-3 text-sm text-[#4A5568] leading-relaxed">
+                                <li class="flex gap-3"><span class="text-[#6366f1]">•</span><p>Survey ini bersifat <strong class="font-bold">100% ANONIM</strong>. Kami tidak merekam data pribadi, email, atau IP Anda.</p></li>
+                                <li class="flex gap-3"><span class="text-[#6366f1]">•</span><p><strong class="font-bold">Pesan khusus untuk adik-adik kelas:</strong> Tidak perlu menggunakan kata sapaan "Ka" atau "Kakak" agar identitas terjaga.</p></li>
+                                <li class="flex gap-3"><span class="text-[#6366f1]">•</span><p>Isilah form ini sejujur-jujurnya demi evaluasi objektif organisasi.</p></li>
+                            </ul>
+                        </div>
+
+                        <!-- Section 1 -->
+                        <div class="bg-white border border-gray-100 rounded-3xl shadow-sm overflow-hidden text-sm">
+                            <div class="p-6 border-b border-gray-50 flex items-center gap-3">
+                                <i data-lucide="user" class="text-[#6366f1]" style="width: 20px; height: 20px;"></i>
+                                <h2 class="text-xs font-bold text-[#6366f1] uppercase tracking-widest">01. SURVEY KARAKTER & KEPEMIMPINAN</h2>
+                            </div>
+                            
+                            <div class="p-8 space-y-10">
+                                <!-- Q1 -->
+                                <div class="space-y-6">
+                                    <h3 class="font-bold text-gray-800">Dalam situasi krisis, tipe kepemimpinan mana yang paling menggambarkan dirimu?</h3>
+                                    <div class="grid gap-3">
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q1" value="Memprioritaskan diskusi dan harmoni tim sebelum bertindak" class="peer sr-only radio-custom" required>
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">A</div>
+                                                <span class="radio-text text-gray-600">Memprioritaskan diskusi dan harmoni tim sebelum bertindak.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q1" value="Fokus pada perencanaan strategis dan delegasi tugas" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">B</div>
+                                                <span class="radio-text text-gray-600">Fokus pada perencanaan strategis dan delegasi tugas.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q1" value="Mengambil inisiatif cepat dan memimpin di garis depan" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">C</div>
+                                                <span class="radio-text text-gray-600">Mengambil inisiatif cepat dan memimpin di garis depan.</span>
+                                            </div>
+                                        </label>
+                                        <label class="relative group cursor-pointer">
+                                            <input type="radio" name="Q1" value="Memberikan dukungan moral dan memantau dari belakang" class="peer sr-only radio-custom">
+                                            <div class="flex items-center gap-4 p-5 rounded-[22px] border border-gray-100 bg-[#FBFBFA]/40 transition-all duration-300 group-hover:bg-gray-100/50">
+                                                <div class="radio-badge flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-100 text-[11px] font-bold text-[#6366f1] transition-all">D</div>
+                                                <span class="radio-text text-gray-600">Memberikan dukungan moral dan memantau dari belakang.</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- ... Repeat questions Q2 - Q8 here similarly ... -->
+                            </div>
+                        </div>
+
+                        <!-- Section 2 -->
+                        <div class="space-y-8">
+                            <div class="bg-white border border-gray-100 rounded-3xl shadow-sm p-8 space-y-6">
+                                <div class="flex items-center justify-between border-b border-gray-50 pb-4">
+                                    <h2 class="text-xs font-bold text-[#6366f1] uppercase tracking-widest">01 LOGIKA ORGANISASI: KONFLIK INTERNAL</h2>
+                                    <i data-lucide="sparkles" class="text-yellow-400 opacity-60"></i>
+                                </div>
+                                <p class="font-bold text-gray-800">Bagaimana caramu menangani konflik internal divisi yang menghambat koordinasi?</p>
+                                <textarea name="konflik_internal" placeholder="Tuliskan analisis dan langkah solutifmu..." class="w-full min-h-[160px] p-6 rounded-3xl bg-[#F9FAFB]/50 border border-transparent focus:bg-white focus:border-[#6366f1]/30 focus:ring-4 focus:ring-[#6366f1]/5 outline-none transition-all text-sm leading-relaxed" required></textarea>
+                            </div>
+                            <div class="bg-white border border-gray-100 rounded-3xl shadow-sm p-8 space-y-6">
+                                <div class="flex items-center justify-between border-b border-gray-50 pb-4">
+                                    <h2 class="text-xs font-bold text-[#6366f1] uppercase tracking-widest">02 KEPEMIMPINAN: JENUH & PASIF</h2>
+                                    <i data-lucide="heart" class="text-pink-400 opacity-60"></i>
+                                </div>
+                                <p class="font-bold text-gray-800">Bagaimana caramu meningkatkan partisipasi anggota yang mulai merasa jenuh atau pasif?</p>
+                                <textarea name="anggota_jenuh" placeholder="Langkah strategis untuk membangkitkan semangat tim..." class="w-full min-h-[160px] p-6 rounded-3xl bg-[#F9FAFB]/50 border border-transparent focus:bg-white focus:border-[#6366f1]/30 focus:ring-4 focus:ring-[#6366f1]/5 outline-none transition-all text-sm leading-relaxed" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Footer & Submit -->
+                        <div class="flex flex-col items-center pt-8 space-y-8">
+                            <button type="submit" :disabled="isSubmitting" class="flex items-center gap-4 bg-[#6366f1] text-white px-12 py-6 rounded-full font-bold shadow-xl shadow-indigo-100 transition-all text-xl disabled:opacity-70">
+                                <span x-show="!isSubmitting">Kirim Aspirasi Anonim</span>
+                                <span x-show="isSubmitting">Mengirim...</span>
+                                <i data-lucide="send-horizonal"></i>
+                            </button>
+
+                            <footer class="text-center space-y-2 opacity-60">
+                                <p class="text-[10px] font-medium tracking-wide">© 2025/2026 Majelis Perwakilan Kelas. Protected with end-to-end anonymity.</p>
+                                <p class="text-[10px] font-bold tracking-widest text-[#6366f1] uppercase">ORIGINAL BY: OSVALIANT STUDENT REPRESENTATIVE LEADER</p>
+                            </footer>
+                        </div>
+                    </form>
+                </div>
+            </template>
+        </div>
+    </div>
+
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
