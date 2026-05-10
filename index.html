@@ -47,7 +47,17 @@
         }
     </script>
 </head>
-<body x-data="{ submitted: false, isSubmitting: false }">
+<body x-data="{ 
+    submitted: false, 
+    isSubmitting: false,
+    init() {
+        this.$watch('submitted', value => {
+            if (value) {
+                this.$nextTick(() => lucide.createIcons());
+            }
+        });
+    }
+}">
 
     <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto space-y-12">
@@ -60,8 +70,8 @@
                             <div class="relative">
                                 <div class="absolute inset-0 bg-emerald-50 rounded-full scale-150 opacity-40 animate-pulse"></div>
                                 <div class="absolute inset-0 bg-emerald-50 rounded-full scale-125 opacity-60"></div>
-                                <div class="relative w-24 h-24 rounded-full bg-emerald-50 flex items-center justify-center border-4 border-white shadow-sm text-emerald-500">
-                                    <i data-lucide="check-circle-2" style="width: 48px; height: 48px; stroke-width: 2.5px;"></i>
+                                <div class="relative w-24 h-24 rounded-full bg-emerald-100 flex items-center justify-center border-4 border-white shadow-sm text-emerald-600">
+                                    <i data-lucide="check" style="width: 48px; height: 48px; stroke-width: 3px;"></i>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +82,7 @@
                             </p>
                         </div>
                         <div class="pt-6">
-                            <button @click="submitted = false" class="w-full bg-[#6366f1] text-white py-6 rounded-3xl font-bold shadow-xl shadow-indigo-100 hover:shadow-indigo-200 transition-all text-xl">
+                            <button @click="submitted = false" class="w-full bg-[#6366f1] text-white py-6 rounded-3xl font-bold shadow-xl shadow-indigo-200 hover:shadow-indigo-300 transition-all text-xl">
                                 Kirim Tanggapan Lain
                             </button>
                         </div>
@@ -102,16 +112,18 @@
                     <form action="https://formspree.io/f/xrejokrd" method="POST" 
                         @submit.prevent="
                             isSubmitting = true;
+                            const formData = new FormData($el);
                             fetch($el.action, {
                                 method: 'POST',
-                                body: new FormData($el),
+                                body: formData,
                                 headers: { 'Accept': 'application/json' }
-                            }).then(response => {
+                            }).then(async response => {
                                 if (response.ok) {
                                     submitted = true;
                                     window.scrollTo({ top: 0, behavior: 'smooth' });
                                 } else {
-                                    alert('Gagal mengirim. Silakan coba lagi.');
+                                    const data = await response.json();
+                                    alert('Gagal mengirim: ' + (data.error || 'Terjadi kesalahan.'));
                                 }
                             }).catch(() => {
                                 alert('Terjadi kesalahan koneksi.');
